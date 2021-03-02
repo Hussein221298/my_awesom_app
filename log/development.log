@@ -2775,3 +2775,24 @@ Processing by LoginController#index as HTML
 Completed 200 OK in 144ms (Views: 130.5ms | ActiveRecord: 0.0ms | Allocations: 13382)
 
 
+Started GET "/" for ::1 at 2021-03-02 20:11:12 +0200
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 6354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 95.7ms | Allocations: 10564)
+Completed 200 OK in 118ms (Views: 103.7ms | ActiveRecord: 0.0ms | Allocations: 13780)
+
+
+Started GET "/" for ::1 at 2021-03-02 20:11:16 +0200
+Processing by LoginController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 6439)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 6837)
+
+
