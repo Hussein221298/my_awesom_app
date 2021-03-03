@@ -28,8 +28,7 @@
 
   <div class="field">
     <%= form.label :role %>
-    <%= form.select(:role, collection: [['member', 'member'], ['admin' , 'admin']])%>
-
+    <%= select_tag 'role', options_for_select(user.class.ROLE_OPTIONS.map{|option| [option,option]}) %>
   </div>
 
 

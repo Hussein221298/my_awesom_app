@@ -3008,3 +3008,431 @@ Processing by LoginController#index as HTML
 Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.0ms | Allocations: 6842)
 
 
+Started GET "/" for ::1 at 2021-03-03 16:09:13 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (Duration: 17.0ms | Allocations: 6356)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 10566)
+Completed 200 OK in 84ms (Views: 75.9ms | ActiveRecord: 0.0ms | Allocations: 13780)
+
+
+Started GET "/users" for ::1 at 2021-03-03 16:09:21 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 5836)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 54.7ms | Allocations: 10095)
+Completed 200 OK in 60ms (Views: 49.9ms | ActiveRecord: 8.6ms | Allocations: 11047)
+
+
+Started GET "/users" for ::1 at 2021-03-03 16:12:21 +0200
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1413)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.0ms | Allocations: 5900)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 0.7ms | Allocations: 7013)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:12:23 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 52.8ms | Allocations: 4512)
+  Rendered users/new.html.erb within layouts/application (Duration: 58.9ms | Allocations: 4846)
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 4912)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.0ms | Allocations: 5433)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role %>
+    
+    <%= select_tag 'role', options_for_select(in.map{|option| [option,option]}) %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: user) do |form| %>
+2:      <% if user.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% user.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= form.label :first_name %>
+16:        <%= form.text_field :first_name %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= form.label :last_name %>
+21:        <%= form.text_field :last_name %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= form.label :email %>
+26:        <%= form.text_field :email %>
+27:      </div>
+28:    
+29:      <div class="field">
+30:        <%= form.label :role %>
+31:        
+32:        <%= select_tag 'role', options_for_select(in.map{|option| [option,option]}) %>
+33:      </div>
+34:    
+35:    
+36:      <div class="actions">
+37:        <%= form.submit %>
+38:      </div>
+39:    <% end %>
+  
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/_form.html.erb:32: syntax error, unexpected `in', expecting ')'
+app/views/users/_form.html.erb:32: syntax error, unexpected ')', expecting `end'
+app/views/users/_form.html.erb:41: syntax error, unexpected `end', expecting end-of-input
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:14:27 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 105.6ms | Allocations: 4501)
+  Rendered users/new.html.erb within layouts/application (Duration: 107.3ms | Allocations: 4832)
+  Rendered layout layouts/application.html.erb (Duration: 108.9ms | Allocations: 4897)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 3.6ms | Allocations: 10093)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000001001fdc8>::ROLE_OPTIONS):
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     
+    32:     <%= select_tag 'role', options_for_select(ROLE_OPTIONS.map{|option| [option,option]}) %>
+    33:   </div>
+    34: 
+    35: 
+  
+app/views/users/_form.html.erb:32
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:14:49 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 2627)
+
+
+  
+NameError (uninitialized constant #<Class:0x000000000b6ff210>::ROLE_OPTIONS):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:14:52 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1602)
+
+
+  
+NameError (uninitialized constant #<Class:0x000000000b6ff210>::ROLE_OPTIONS):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:16:10 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 3794)
+
+
+  
+NameError (uninitialized constant #<Class:0x000000000b6ff210>::ROLE_OPTIONS):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:16:13 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1602)
+
+
+  
+NameError (uninitialized constant #<Class:0x000000000b6ff210>::ROLE_OPTIONS):
+  
+app/models/user.rb:8:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:16:35 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.6ms | Allocations: 5373)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 5702)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5766)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 4.4ms | Allocations: 10944)
+
+
+  
+ActionView::Template::Error (undefined method `ROLE_OPTIONS' for #<Class:0x000000000fe90ed0>):
+    28: 
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     <%= select_tag 'role', options_for_select(User.ROLE_OPTIONS.map{|option| [option,option]}) %>
+    32:   </div>
+    33: 
+    34: 
+  
+app/views/users/_form.html.erb:31
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:18:28 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 7.2ms | Allocations: 4978)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 5070)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5134)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 4.0ms | Allocations: 9720)
+
+
+  
+ActionView::Template::Error (undefined method `ROLE_OPTIONS' for #<Class:0x00000000100a65f8>):
+    28: 
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     <%= select_tag 'role', options_for_select(User.ROLE_OPTIONS.map{|option| [option,option]}) %>
+    32:   </div>
+    33: 
+    34: 
+  
+app/views/users/_form.html.erb:31
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:18:49 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.7ms | Allocations: 2776)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3104)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3168)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 4246)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    28: 
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     <%= select_tag 'role', options_for_select(user.ROLE_OPTIONS.map{|option| [option,option]}) %>
+    32:   </div>
+    33: 
+    34: 
+  
+app/views/users/_form.html.erb:31
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:19:04 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.9ms | Allocations: 2442)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2598)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 5.5ms | Allocations: 7186)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    28: 
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     <%= select_tag 'role', options_for_select(user.ROLE_OPTIONS.map{|option| [option,option]}) %>
+    32:   </div>
+    33: 
+    34: 
+  
+app/views/users/_form.html.erb:31
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:19:44 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 1210)
+
+
+  
+ArgumentError (An object with the method #include? or a proc, lambda or symbol is required, and must be supplied as the :in (or :within) option of the configuration hash):
+  
+app/models/user.rb:12:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:19:59 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 912)
+
+
+  
+ArgumentError (An object with the method #include? or a proc, lambda or symbol is required, and must be supplied as the :in (or :within) option of the configuration hash):
+  
+app/models/user.rb:12:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:20:05 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 911)
+
+
+  
+ArgumentError (An object with the method #include? or a proc, lambda or symbol is required, and must be supplied as the :in (or :within) option of the configuration hash):
+  
+app/models/user.rb:12:in `<class:User>'
+app/models/user.rb:3:in `<main>'
+app/controllers/users_controller.rb:16:in `new'
+Started GET "/users/new" for ::1 at 2021-03-03 16:20:16 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 12.4ms | Allocations: 1557)
+  Rendered users/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 1901)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.6ms | Allocations: 6374)
+Completed 200 OK in 100ms (Views: 71.1ms | ActiveRecord: 7.9ms | Allocations: 11590)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:20:26 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.5ms | Allocations: 1149)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1257)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.8ms | Allocations: 5549)
+Completed 200 OK in 87ms (Views: 56.8ms | ActiveRecord: 3.9ms | Allocations: 10129)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:20:47 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.0ms | Allocations: 1134)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 5524)
+Completed 200 OK in 106ms (Views: 61.6ms | ActiveRecord: 3.8ms | Allocations: 10100)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:23:31 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.6ms | Allocations: 1134)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.4ms | Allocations: 5523)
+Completed 200 OK in 81ms (Views: 55.0ms | ActiveRecord: 3.9ms | Allocations: 10141)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:24:00 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.2ms | Allocations: 5024)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 5116)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5180)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 5.9ms | Allocations: 9825)
+
+
+  
+ActionView::Template::Error (undefined method `roleOpt' for #<Class:0x000000000dae4b08>
+Did you mean?  ROLE_OPTIONS):
+    28: 
+    29:   <div class="field">
+    30:     <%= form.label :role %>
+    31:     <%= select_tag 'role', options_for_select(user.class.roleOpt.map{|option| [option,option]}) %>
+    32:   </div>
+    33: 
+    34: 
+  
+app/views/users/_form.html.erb:31
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2021-03-03 16:24:40 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.4ms | Allocations: 1511)
+  Rendered users/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 1855)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 6331)
+Completed 200 OK in 92ms (Views: 66.2ms | ActiveRecord: 3.9ms | Allocations: 11662)
+
+
+Started GET "/users/new" for ::1 at 2021-03-03 16:28:19 +0200
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.7ms | Allocations: 1142)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1250)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.3ms | Allocations: 5522)
+Completed 200 OK in 107ms (Views: 83.9ms | ActiveRecord: 3.7ms | Allocations: 10223)
+
+
