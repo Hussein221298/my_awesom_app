@@ -12,7 +12,7 @@ executors:
   default:
     working_directory: ~/rails_app
     docker:
-      - image: circleci/ruby:2.7.1-node-browsers
+      - image: circleci/ruby:2.7.2-node-browsers
         environment:
           PGHOST: localhost
           PGUSER: rails_app
