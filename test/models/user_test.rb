@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user=User.create({
-      first_name: 'Rami',
-      last_name: 'Rizk',
-      email: 'rami@gtlogic.com'
-    })
+    @user = User.create({
+                          first_name: 'Rami',
+                          last_name: 'Rizk',
+                          email: 'rami@gtlogic.com'
+                        })
   end
 
   test 'getting the full name' do
@@ -41,7 +43,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.invalid?
     assert_equal @user.errors[:email].length, 2
     assert @user.errors[:email].include?("can't be blank")
-    assert @user.errors[:email].include?("is invalid")
+    assert @user.errors[:email].include?('is invalid')
   end
 
   test 'email validation format' do
@@ -49,18 +51,18 @@ class UserTest < ActiveSupport::TestCase
     @user.email = 'hussein'
     assert @user.invalid?
     assert_equal @user.errors[:email].length, 1
-    assert @user.errors[:email].include?("is invalid")
+    assert @user.errors[:email].include?('is invalid')
   end
 
   test 'email validation uniqueness' do
     assert @user.valid?
-    @user=User.create({
-      first_name: 'hussein',
-      last_name: 'hraibeh',
-      email: 'rami@gtlogic.com'
-    })
+    @user = User.create({
+                          first_name: 'hussein',
+                          last_name: 'hraibeh',
+                          email: 'rami@gtlogic.com'
+                        })
     assert @user.invalid?
     assert_equal @user.errors[:email].length, 1
-    assert @user.errors[:email].include?("has already been taken")
+    assert @user.errors[:email].include?('has already been taken')
   end
 end
