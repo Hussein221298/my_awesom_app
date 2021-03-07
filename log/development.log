@@ -7782,3 +7782,28 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 109ms (Views: 80.0ms | ActiveRecord: 5.4ms | Allocations: 6548)
 
 
+Started GET "/" for ::1 at 2021-03-07 14:52:24 +0200
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 584.1ms | Allocations: 11765)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 739.8ms | Allocations: 16006)
+Completed 200 OK in 786ms (Views: 758.1ms | ActiveRecord: 0.0ms | Allocations: 18652)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-03-07 14:52:34 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1452)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 5752)
+Completed 200 OK in 358ms (Views: 145.9ms | ActiveRecord: 51.4ms | Allocations: 13625)
+
+
