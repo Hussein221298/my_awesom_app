@@ -7,7 +7,10 @@ class UserTest < ActiveSupport::TestCase
     @user = User.create({
                           first_name: 'Rami',
                           last_name: 'Rizk',
-                          email: 'rami@gtlogic.com'
+                          email: 'rami@gtlogic.com',
+                          role: 'member',
+                          password: '1234',
+                          password_confirmation: '1234'
                         })
   end
 
@@ -23,6 +26,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'first name validation' do
     assert @user.valid?
+
     @user.first_name = nil
     assert @user.invalid?
     assert_equal @user.errors[:first_name].length, 1

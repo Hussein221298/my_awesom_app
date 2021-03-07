@@ -27,8 +27,18 @@
   </div>
 
   <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
     <%= form.label :role %>
-    <%= select_tag 'role', options_for_select(user.class.ROLE_OPTIONS.map{|option| [option,option]}) %>
+    <%= select_tag 'role', options_for_select(user.class.role_options.map{|option| [option,option]}) %>
   </div>
 
 

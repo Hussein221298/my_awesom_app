@@ -92,6 +92,7 @@ body {
   color: #c7c7c9;
 }
 
+
 .login__forgot-password {
   grid-area: forgot-password;
   justify-self: center;
@@ -102,6 +103,7 @@ body {
   font-style: italic;
   letter-spacing: -0.29px;
   color: #9494c3;
+  
 }
 
 .login__forgot-password:hover {
