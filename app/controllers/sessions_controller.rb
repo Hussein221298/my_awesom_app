@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by_email(params[:session][:email])
 
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       login(user)
-      redirect_to root_path
+      redirect_to users_path
     else
       @alert = 'Email or password is invalid'
+      render :new
     end
-    render :new
   end
 
   def destroy

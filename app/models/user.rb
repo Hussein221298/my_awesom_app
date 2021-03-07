@@ -2,15 +2,13 @@
 
 class User < ApplicationRecord
   has_secure_password
-  @ROLE_OPTIONS = %w[member admin]
-  self.class.attr_reader :ROLE_OPTIONS
-
+  @role_options = %w[member admin]
+  self.class.attr_reader :role_options
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :role, inclusion: { in: @role_options, message: '%<value>s is not a valid role' }
   validates :password_confirmation, presence: true, if: -> { password.present? }
-  validates :role, inclusion: { in: @ROLE_OPTIONS, message: '%<value>s is not a valid role' }
-
   def full_name
     "#{first_name} #{last_name}"
   end

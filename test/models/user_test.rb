@@ -5,12 +5,13 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   setup do
     @user = User.create({
-      first_name: 'Rami',
-      last_name: 'Rizk',
-      email: 'ram@gtlogic.com',
-      password: '1234',
-      password_confirmation: '1234'
-    })
+                          first_name: 'Rami',
+                          last_name: 'Rizk',
+                          email: 'rami@gtlogic.com',
+                          role: 'member',
+                          password: '1234',
+                          password_confirmation: '1234'
+                        })
   end
 
   test 'getting the full name' do
@@ -25,6 +26,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'first name validation' do
     assert @user.valid?
+
     @user.first_name = nil
     assert @user.invalid?
     assert_equal @user.errors[:first_name].length, 1

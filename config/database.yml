@@ -1,7 +1,6 @@
 default: &default
   adapter: postgresql
   # The password associated with the postgres role (username).
-
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
